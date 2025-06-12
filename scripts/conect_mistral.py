@@ -1,14 +1,27 @@
-from mistralai import Mistral, models  # type: ignore
+from mistralai import Mistral  # type: ignore
+from mistral_client import set_client  # Importar la función para establecer el cliente
+
+# Variable global para almacenar la conexión
+global mod_model_Mistral
+
+try:
+    if not mod_model_Mistral:  # type: ignore
+        mod_model_Mistral = None
+except NameError:
+    mod_model_Mistral = None
+
 
 def connect_to_mistral(api_key, result_var, SetVar, PrintException):
     """
-    Connect to Mistral AI using the official SDK and validate the connection.
+    Connect to Mistral AI using the official SDK and store the connection globally.
 
     :param api_key: API key to authenticate with Mistral AI.
     :param result_var: Name of the variable to store the result.
     :param SetVar: Function to set variables in Rocketbot.
     :param PrintException: Function to print exceptions in Rocketbot.
     """
+    global mod_model_Mistral
+
     # Validate that api_key and result_var are provided
     if not api_key:
         raise Exception("API key is missing. Please provide a valid API key.")
@@ -16,42 +29,26 @@ def connect_to_mistral(api_key, result_var, SetVar, PrintException):
         raise Exception("Result variable is not defined. Please define a variable to store the result.")
 
     try:
-        # Create client using the official SDK
+        # Initialize the Mistral client and store it globally
         client = Mistral(api_key=api_key)
 
-        # List models as a connection test
+        # Test the connection by listing models
         models_list = client.models.list()
 
-        # If we reach here, the connection was successful (status code 200)
+        # Validate that the response contains models
+        if hasattr(models_list, 'data') and models_list.data:
+            print("Se encontraron los modelos.")
+        else:
+            raise Exception("No se encontraron modelos en la respuesta. Verifica la conexión o el API key.")
+
+        # Store the client globally
+        set_client(client)
+
+        # If successful, set the result variable to True
         SetVar(result_var, True)
 
-    except models.HTTPValidationError as e:
-        # Error 422 - Validation error
-        error_msg = "Validation error in the request"
-        if hasattr(e, 'data'):
-            error_msg += f": {str(e.data)}"
-        SetVar(result_var, False)
-        raise Exception(error_msg)
-
-    except models.SDKError as e:
-        # Handle other HTTP errors (4XX and 5XX)
-        status_code = getattr(e, 'status_code', 'unknown')
-        error_msg = f"Server error (code {status_code})"
-
-        if status_code in [401, '401']:
-            error_msg = "Authentication error: The API key is invalid or unauthorized."
-        elif status_code in ['429', 429]:
-            error_msg = "Too many requests. Please wait a moment and try again."
-        elif str(status_code).startswith('4'):
-            error_msg = f"Client error (code {status_code}). Please check your request."
-        elif str(status_code).startswith('5'):
-            error_msg = "Mistral server error. Please try again later."
-
-        SetVar(result_var, False)
-        raise Exception(error_msg)
-
     except Exception as e:
-        # Other unexpected errors
-        error_msg = f"Unexpected error: {str(e)}"
+        # On failure, set the result variable to False and raise the exception
         SetVar(result_var, False)
-        raise Exception(error_msg)
+        PrintException()
+        raise e

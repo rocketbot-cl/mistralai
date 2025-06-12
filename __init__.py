@@ -33,6 +33,7 @@ if libs_path not in sys.path:
     sys.path.append(libs_path)
 
 from conect_mistral import connect_to_mistral  # type: ignore
+from get_models import get_models  # type: ignore
 
 module = GetParams("module")
 
@@ -44,6 +45,11 @@ try:
         # Delegar la funcionalidad de conexión al archivo conect_mistral.py
         connect_to_mistral(api_key, result_var, SetVar, PrintException)
 
+    elif module == "get_models":
+        result_var = GetParams("result_var")
+
+        # Delegar la funcionalidad de obtención de modelos al archivo get_models.py
+        get_models(result_var, SetVar, PrintException)
 except Exception as e:
     PrintException()
     raise e
