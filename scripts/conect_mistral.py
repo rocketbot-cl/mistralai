@@ -25,8 +25,6 @@ def connect_to_mistral(api_key, result_var, SetVar, PrintException):
     # Validate that api_key and result_var are provided
     if not api_key:
         raise Exception("API key is missing. Please provide a valid API key.")
-    if not result_var:
-        raise Exception("Result variable is not defined. Please define a variable to store the result.")
 
     try:
         # Initialize the Mistral client and store it globally

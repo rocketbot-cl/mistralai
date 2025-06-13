@@ -22,9 +22,6 @@ def ocr_base64(model, file_path, result_var, SetVar, PrintException):
         if not model or not file_path:
             raise Exception("Debe proporcionar un modelo y una ruta de archivo para procesar con OCR.")
 
-        if not result_var:
-            raise Exception("Debe proporcionar un nombre de variable para guardar el resultado.")
-
         # Read the file and encode it in base64
         with open(file_path, "rb") as file:
             encoded_image = base64.b64encode(file.read()).decode("utf-8")

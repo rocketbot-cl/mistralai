@@ -23,9 +23,6 @@ def ocr_document(model, document_url, document_type, result_var, SetVar, PrintEx
         if not model or not document_url or not document_type:
             raise Exception("Debe proporcionar un modelo, una URL de documento o imagen, y el tipo de documento para procesar con OCR.")
 
-        if not result_var:
-            raise Exception("Debe proporcionar un nombre de variable para guardar el resultado.")
-
         # Prepare the document payload based on the type
         if document_type == "image":
             document = {"type": "image_url", "image_url": document_url}

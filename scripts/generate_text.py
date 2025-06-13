@@ -25,9 +25,6 @@ def generate_text(prompt, model, result_var, temperature, max_tokens, stop_seque
         if not prompt or not model:
             raise Exception("Debe proporcionar un prompt y un modelo para generar texto.")
 
-        if not result_var:
-            raise Exception("Debe proporcionar un nombre de variable para guardar el resultado.")
-
         # Create the user message
         messages = [
             {
