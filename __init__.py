@@ -34,12 +34,12 @@ if cur_path not in sys.path:
 if libs_path not in sys.path:
     sys.path.append(libs_path)
 
-
 module = GetParams("module")
 
-from generate_text import generate_text  # type: ignore
-from get_models import get_models  # type: ignore
+from ocr_document import ocr_document  # type: ignore
 from conect_mistral import connect_to_mistral  # type: ignore
+from get_models import get_models  # type: ignore
+from generate_text import generate_text  # type: ignore
 
 try:
     if module == "connect":
@@ -58,7 +58,16 @@ try:
         temperature = GetParams("temperature")
         max_tokens = GetParams("max_tokens")
         stop_sequence = GetParams("stop_sequence")
-        generate_text(prompt, model, result_var, temperature, max_tokens, stop_sequence, SetVar, PrintException)
+        generate_text(prompt, model, result_var, temperature,
+                      max_tokens, stop_sequence, SetVar, PrintException)
+
+    elif module == "ocr_document":
+        model = GetParams("model")
+        document_url = GetParams("document_url")
+        # Nuevo parámetro para el tipo de documento
+        document_type = GetParams("document_type")
+        result_var = GetParams("result_var")
+        ocr_document(model, document_url, document_type, result_var, SetVar, PrintException)
 
     else:
         raise Exception(f"El módulo '{module}' no está implementado.")
