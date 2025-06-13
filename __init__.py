@@ -36,10 +36,11 @@ if libs_path not in sys.path:
 
 module = GetParams("module")
 
-from ocr_document import ocr_document  # type: ignore
 from conect_mistral import connect_to_mistral  # type: ignore
 from get_models import get_models  # type: ignore
 from generate_text import generate_text  # type: ignore
+from ocr_document import ocr_document  # type: ignore
+from ocr_base64 import ocr_base64  # type: ignore
 
 try:
     if module == "connect":
@@ -64,10 +65,14 @@ try:
     elif module == "ocr_document":
         model = GetParams("model")
         document_url = GetParams("document_url")
-        # Nuevo parámetro para el tipo de documento
         document_type = GetParams("document_type")
         result_var = GetParams("result_var")
         ocr_document(model, document_url, document_type, result_var, SetVar, PrintException)
+    elif module == "ocr_base64":
+      model = GetParams("model")
+      file_path = GetParams("file_path")
+      result_var = GetParams("result_var")
+      ocr_base64(model, file_path, result_var, SetVar, PrintException)
 
     else:
         raise Exception(f"El módulo '{module}' no está implementado.")
