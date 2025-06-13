@@ -22,7 +22,7 @@ def get_models(result_var, SetVar, PrintException):
         # Validate that the response contains models
         if hasattr(models_list, 'data') and models_list.data:
             print("Se encontraron los modelos:")
-            print(models_list.data)  # Imprime los modelos disponibles
+            # print(models_list.data)  # Imprime los modelos disponibles
         else:
             raise Exception("No se encontraron modelos en la respuesta. Verifica la conexión o el API key.")
 

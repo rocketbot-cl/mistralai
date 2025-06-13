@@ -161,6 +161,189 @@
       "windows": true,
       "mac": true,
       "docker": false
+    },
+    {
+      "en": {
+        "title": "Generate Text",
+        "description": "Generate text using Mistral AI",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "es": {
+        "title": "Generar Texto",
+        "description": "Genera texto utilizando Mistral AI",
+        "title_options": "Seleccione una opción",
+        "options": null
+      },
+      "pr": {
+        "title": "Gerar Texto",
+        "description": "Gera texto usando o Mistral AI",
+        "title_options": "Selecione uma opção",
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "textarea",
+            "placeholder": {
+              "es": "Qué es Rocketbot?",
+              "en": "What is Rocketbot?",
+              "pr": "O que é Rocketbot?"
+            },
+            "title": {
+              "es": "Prompt:",
+              "en": "Prompt:",
+              "pr": "Prompt:"
+            },
+            "description": {
+              "es": "Texto de entrada para generar texto",
+              "en": "Input text to generate text",
+              "pr": "Texto de entrada para gerar texto"
+            },
+            "id": "prompt",
+            "css": "col-md-12",
+            "required": true
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "mistral-tiny",
+              "en": "mistral-tiny",
+              "pr": "mistral-tiny"
+            },
+            "title": {
+              "es": "Modelo:",
+              "en": "Model:",
+              "pr": "Modelo:"
+            },
+            "description": {
+              "es": "ID del modelo a utilizar",
+              "en": "ID of the model to use",
+              "pr": "ID do modelo a ser usado"
+            },
+            "help": {
+              "es": "Por ejemplo: mistral-tiny, mistral-large",
+              "en": "For example: mistral-tiny, mistral-large",
+              "pr": "Por exemplo: mistral-tiny, mistral-large"
+            },
+            "id": "model",
+            "css": "col-md-6",
+            "required": true
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "resultadoTexto",
+              "en": "textResult",
+              "pr": "resultadoTexto"
+            },
+            "title": {
+              "es": "Asignar a variable:",
+              "en": "Assign to variable:",
+              "pr": "Atribuir à variável:"
+            },
+            "description": {
+              "es": "Nombre de la variable donde se guardará el texto generado",
+              "en": "Variable name to store the generated text",
+              "pr": "Nome da variável para armazenar o texto gerado"
+            },
+            "id": "result_var",
+            "css": "col-md-6",
+            "remove_vars": true,
+            "required": true
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "0.7",
+              "en": "0.7",
+              "pr": "0.7"
+            },
+            "title": {
+              "es": "Temperatura (opcional):",
+              "en": "Temperature (optional):",
+              "pr": "Temperatura (opcional):"
+            },
+            "description": {
+              "es": "Controla la aleatoriedad de la generación de texto (0.0 a 0.7)",
+              "en": "Controls the randomness of text generation (0.0 a 0.7)",
+              "pr": "Controla a aleatoriedade da geração de texto (0.0 a 0.7)"
+            },
+            "help": {
+              "es": "Valores más altos generan texto más diverso.",
+              "en": "Higher values generate more diverse text.",
+              "pr": "Valores mais altos geram texto mais diverso."
+            },
+            "id": "temperature",
+            "css": "col-md-6",
+            "required": false
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "100",
+              "en": "100",
+              "pr": "100"
+            },
+            "title": {
+              "es": "Máximo de tokens (opcional):",
+              "en": "Maximum tokens (optional):",
+              "pr": "Máximo de tokens (opcional):"
+            },
+            "description": {
+              "es": "Número máximo de tokens a generar",
+              "en": "Maximum number of tokens to generate",
+              "pr": "Número máximo de tokens a serem gerados"
+            },
+            "help": {
+              "es": "Limita la longitud de la respuesta generada.",
+              "en": "Limits the length of the generated response.",
+              "pr": "Limita o comprimento da resposta gerada."
+            },
+            "id": "max_tokens",
+            "css": "col-md-6",
+            "required": false
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "pared amarilla",
+              "en": "yellow wall",
+              "pr": "parede amarela"
+            },
+            "title": {
+              "es": "Secuencia de parada (opcional):",
+              "en": "Stop sequence (optional):",
+              "pr": "Sequência de parada (opcional):"
+            },
+            "description": {
+              "es": "Secuencia opcional para detener la generación de texto",
+              "en": "Optional sequence to stop text generation",
+              "pr": "Sequência opcional para parar a geração de texto"
+            },
+            "help": {
+              "es": "Detener la generación si se detecta este texto.",
+              "en": "Stop generation if this text is detected.",
+              "pr": "Parar a geração se este texto for detectado."
+            },
+            "id": "stop_sequence",
+            "css": "col-md-6",
+            "required": false
+          }
+        ]
+      },
+      "module_name": "mistralai",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI1CAMAAAAZwm7GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAD/2AD/2AD/2QD/2AD/vAD/twD/tgD/rwD/sQD/sQD/tQD/uQD/rwD/sAD/sAD/rwD/ogL/ogH/lAL/ggT/kAP/ogL/gQX/ggX7VQ76UQ76Ug7/gAf6Vg37Uw76Vg76VA76UA76UA/6TxD6UA/6UA/5UA/hBQDqIQXtKwjsKAfyOQn6UBD3Rw7sJQbsJQbcAADhBQDhBgDiBADbAAD/AAD/AAD/2AD/rwD/ggX6UA/hBQD///9Qsmk0AAAAN3RSTlMAkOK6uH3FwJ80GrqakFQquoHTbj1VopC7gdnDJpi1p6GQ4qTOurhdkbqudZJ9oJ8WZyo9BwIBn7QInQAAAAFiS0dEPKdqYc8AAAAHdElNRQfpAgcMBCU8+mMUAAAIX0lEQVR42u3UVVIDQRiF0cE1OAQJBHcLEmz/++KBFUB13QrT59vB/XvONE26sbdw442KN5F+xclqTgsIIIAAAggggAACCCACBBABAogAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAABEggAgQQAQIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEAECiAABRIAA4nMGBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAUSAACJAABEggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAogAAUSAACJAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAgQQAQIIAIEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABRIAAIkAAESCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACiAABRIAAIkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBABAggAgQQAQIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCACBBABAggAmTEm5oONzObbi590/n4xIX0Ky5WA6Tz3vqW0jddbv9NVwABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEk2Opa61vfCLfZ/ptuVQOk+yH9um1AJEAAESCACBBABAggAgQQAQKIAAFEgAAiQACRAJEAAUSAACJAABEggAgQQAQIIAIEEAECiAABRALEYwsQQAQIIAIEEAECiAABRIAAIkAAESCASIBIgAAiQAARIIAIEEAECCACBBABAogAAUSAACIBIgECiAABRIAAIkAAESCACBBABAggAgQQCRAJEEAECCACBBABAogAAUSAACJAABEggAgQQCRAJEAAESCACBBABAggAgQQAQKIAAFEgAAiASIBAogAAUSAACJAABEggAgQQAQIIAIEEAECiASIBAggAgQQAQKIAAFEgAAiQAARIIAIEEAECCASIIAIEEAECCACBBABAogAAUSAACJAABEggEiASIAAIkAAESCACBBABAggAgQQAQKIAAFEgAAiAeKxBQggAgQQAQKIAAFEgIxGO7vh9nrp9tMTD+IT++mJh9UAOfoMdxyfeJKeeBqfeJaeeA4IIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAkjNQC7SXV6Fu45PvLkNdxefeJ9+xYf4xMcfIF8q3iD9l3ty8/I9AwKIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAEiQAARIIAIEEAAAQQQQAABBBBAAAEEEAECiAABRIAAAgggAgQQAQKIAAEEEEAAAQQQQAABBBBAABEggAgQQASIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECiEMAIkAAESCACBBAAAEEEEAAAQQQQAABBBABAogAAUSACBBABAggAgQQQAABBBBAAAEEEEAAAQQQQAARIIAIEEAEiAABRIAAIkAAAQQQQAABBBBAAAEEEEAECCACBBABIkAAESCACBBAAAEEEEAAAQQQQAABBBBAAAFEgAAiQAARIAIEEAECiAABBBBAAAEEEEAAAQQQQAARIIAIEEAECCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQAQKIAAFEgAgQQAQIIAIEEEAAAQQQQAABBBBAAAFEgAAiQAARIIAAAogAAUSAACJAAAEEEEAAAQQQQP4FkBcV7zUNZOjm5Rs2kiT9vW+ssPgLuqLlXAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wMi0wN1QxMjowNDozNyswMDowMHHIopwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDItMDdUMTI6MDQ6MzcrMDA6MDAAlRogAAAAAElFTkSuQmCC",
+      "module": "generate_text",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": false
     }
   ]
 }
