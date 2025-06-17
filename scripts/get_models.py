@@ -1,5 +1,5 @@
-from mistral_client import get_client  # Importar la función para obtener el cliente
-import traceback  # Para capturar trazas de errores
+from mistral_client import get_client  # Import function to get client
+import traceback  # For capturing error traces
 
 
 def get_models(result_var, SetVar, PrintException):
@@ -14,7 +14,7 @@ def get_models(result_var, SetVar, PrintException):
         # Get the client
         client = get_client()
         if not client:
-            raise Exception("Debe conectarse a Mistral AI antes de usar este comando. Ejecute primero el módulo de conexión.")
+            raise Exception("You must connect to Mistral AI before using this command. Please run the connection module first.")
 
         # Retrieve the list of models
         response = client.models.list()
@@ -31,8 +31,8 @@ def get_models(result_var, SetVar, PrintException):
     except Exception as e:
         # On failure, set the result variable to None and raise the exception
         SetVar(result_var, None)
-        print("Error al obtener la lista de modelos de Mistral AI:")
-        print(traceback.format_exc())  # Imprime la traza completa del error
+        print("Error getting model list from Mistral AI:")
+        print(traceback.format_exc())  # Print full error trace
         if PrintException:
             PrintException()
         raise e

@@ -1,5 +1,6 @@
-from mistral_client import get_client  # Importar la función para obtener el cliente
-import traceback  # Para capturar trazas de errores
+from mistral_client import get_client  # Import function to get client
+import traceback  # For capturing error traces
+from mistralai.models import HTTPValidationError  # type: ignore
 
 
 def generate_text(prompt, model, result_var, temperature, max_tokens, stop_sequence, SetVar, PrintException):
@@ -19,11 +20,13 @@ def generate_text(prompt, model, result_var, temperature, max_tokens, stop_seque
         # Get the client
         client = get_client()
         if not client:
-            raise Exception("Debe conectarse a Mistral AI antes de usar este comando. Ejecute primero el módulo de conexión.")
+            raise Exception(
+                "You must connect to Mistral AI before using this command. Please run the connection module first.")
 
         # Validate required parameters
         if not prompt or not model:
-            raise Exception("Debe proporcionar un prompt y un modelo para generar texto.")
+            raise Exception(
+                "You must provide both a prompt and a model to generate text.")
 
         # Create the user message
         messages = [
@@ -44,7 +47,8 @@ def generate_text(prompt, model, result_var, temperature, max_tokens, stop_seque
 
         # Debug: Print the full response and the generated message content
         print("DEBUG: response =", response)
-        print("DEBUG: response.choices[0].message.content =", response.choices[0].message.content)
+        print("DEBUG: response.choices[0].message.content =",
+              response.choices[0].message.content)
 
         # Access the generated message content
         generated_text = response.choices[0].message.content
@@ -55,7 +59,12 @@ def generate_text(prompt, model, result_var, temperature, max_tokens, stop_seque
     except Exception as e:
         # On failure, set the result variable to None and raise the exception
         SetVar(result_var, None)
-        print("Error al generar texto con Mistral AI:")
-        print(traceback.format_exc())  # Imprime la traza completa del error
+        print("Error generating text with Mistral AI:")
+        print(traceback.format_exc())  # Print full error trace
         PrintException()
-        raise e
+
+        if isinstance(e, HTTPValidationError):
+            raise Exception(
+                "Some parameters are not valid. Please check your parameters and try again.")
+        else:
+            raise e

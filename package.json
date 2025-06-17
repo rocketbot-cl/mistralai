@@ -85,6 +85,11 @@
               "en": "Variable name to store the connection",
               "pr": "Nome da variável para armazenar a conexão"
             },
+            "help": {
+              "es": "Nombre de variable sin {}",
+              "en": "Variable name without {}",
+              "pr": "Nome da variável sem {}"
+            },
             "id": "result_var",
             "css": "col-md-6",
             "remove_vars": true,
@@ -142,6 +147,11 @@
               "es": "Nombre de la variable donde se guardará la lista de modelos",
               "en": "Variable name to store the list of models",
               "pr": "Nome da variável para armazenar a lista de modelos"
+            },
+            "help": {
+              "es": "Nombre de variable sin {}",
+              "en": "Variable name without {}",
+              "pr": "Nome da variável sem {}"
             },
             "id": "result_var",
             "css": "col-md-6",
@@ -248,6 +258,11 @@
               "en": "Variable name to store the generated text",
               "pr": "Nome da variável para armazenar o texto gerado"
             },
+            "help": {
+              "es": "Nombre de variable sin {}",
+              "en": "Variable name without {}",
+              "pr": "Nome da variável sem {}"
+            },
             "id": "result_var",
             "css": "col-md-6",
             "remove_vars": true,
@@ -308,9 +323,9 @@
           {
             "type": "input",
             "placeholder": {
-              "es": "pared amarilla",
-              "en": "yellow wall",
-              "pr": "parede amarela"
+              "es": "herramienta RPA",
+              "en": "RPA tool",
+              "pr": "ferramenta RPA"
             },
             "title": {
               "es": "Secuencia de parada (opcional):",
@@ -347,20 +362,20 @@
     },
     {
       "en": {
-        "title": "Process Document with OCR",
-        "description": "Process a document or image URL with Mistral AI OCR",
+        "title": "OCR to Image/PDF",
+        "description": "Process an image or PDF with Mistral AI OCR",
         "title_options": "Select Option",
         "options": null
       },
       "es": {
-        "title": "Procesar Documento con OCR",
-        "description": "Procesa una URL de documento o imagen con el OCR de Mistral AI",
+        "title": "OCR a Imagen/PDF",
+        "description": "Procesa una imagen o PDF con el OCR de Mistral AI",
         "title_options": "Seleccione una opción",
         "options": null
       },
       "pr": {
-        "title": "Processar Documento com OCR",
-        "description": "Processa uma URL de documento ou imagem com o OCR do Mistral AI",
+        "title": "OCR para Imagem/PDF",
+        "description": "Processa uma imagem ou PDF com o OCR do Mistral AI",
         "title_options": "Selecione uma opção",
         "options": null
       },
@@ -370,135 +385,9 @@
           {
             "type": "input",
             "placeholder": {
-              "es": "modeloOCR",
-              "en": "ocrModel",
-              "pr": "modeloOCR"
-            },
-            "title": {
-              "es": "Modelo:",
-              "en": "Model:",
-              "pr": "Modelo:"
-            },
-            "description": {
-              "es": "Nombre del modelo OCR a utilizar",
-              "en": "Name of the OCR model to use",
-              "pr": "Nome do modelo OCR a ser usado"
-            },
-            "id": "model",
-            "css": "col-md-6",
-            "required": true
-          },
-          {
-            "type": "select",
-            "options": [
-              {
-                "title": "image",
-                "value": "image"
-              },
-              {
-                "title": "PDF",
-                "value": "pdf"
-              }
-            ],
-            "title": {
-              "es": "Tipo de Documento:",
-              "en": "Document Type:",
-              "pr": "Tipo de Documento:"
-            },
-            "description": {
-              "es": "Seleccione el tipo de documento a procesar",
-              "en": "Select the type of document to process",
-              "pr": "Selecione o tipo de documento a ser processado"
-            },
-            "id": "document_type",
-            "css": "col-md-6",
-            "required": true
-          },
-          {
-            "type": "input",
-            "placeholder": {
-              "es": "Ingrese la URL del documento o imagen",
-              "en": "Enter the document or image URL",
-              "pr": "Insira a URL do documento ou imagem"
-            },
-            "title": {
-              "es": "URL del Documento:",
-              "en": "Document URL:",
-              "pr": "URL do Documento:"
-            },
-            "description": {
-              "es": "Ingrese la URL del documento o imagen a procesar",
-              "en": "Enter the URL of the document or image to process",
-              "pr": "Insira a URL do documento ou imagem a ser processado"
-            },
-            "id": "document_url",
-            "css": "col-md-6",
-            "required": true
-          },
-          {
-            "type": "input",
-            "placeholder": {
-              "es": "resultadoOCR",
-              "en": "ocrResult",
-              "pr": "resultadoOCR"
-            },
-            "title": {
-              "es": "Asignar a variable:",
-              "en": "Assign to variable:",
-              "pr": "Atribuir à variável:"
-            },
-            "description": {
-              "es": "Nombre de la variable donde se guardará el resultado del OCR",
-              "en": "Variable name to store the OCR result",
-              "pr": "Nome da variável para armazenar o resultado do OCR"
-            },
-            "id": "result_var",
-            "css": "col-md-6",
-            "remove_vars": true,
-            "required": true
-          }
-        ]
-      },
-      "module_name": "mistralai",
-      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI1CAMAAAAZwm7GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAD/2AD/2AD/2QD/2AD/vAD/twD/tgD/rwD/sQD/sQD/tQD/uQD/rwD/sAD/sAD/rwD/ogL/ogH/lAL/ggT/kAP/ogL/gQX/ggX7VQ76UQ76Ug7/gAf6Vg37Uw76Vg76VA76UA76UA/6TxD6UA/6UA/5UA/hBQDqIQXtKwjsKAfyOQn6UBD3Rw7sJQbsJQbcAADhBQDhBgDiBADbAAD/AAD/AAD/2AD/rwD/ggX6UA/hBQD///9Qsmk0AAAAN3RSTlMAkOK6uH3FwJ80GrqakFQquoHTbj1VopC7gdnDJpi1p6GQ4qTOurhdkbqudZJ9oJ8WZyo9BwIBn7QInQAAAAFiS0dEPKdqYc8AAAAHdElNRQfpAgcMBCU8+mMUAAAIX0lEQVR42u3UVVIDQRiF0cE1OAQJBHcLEmz/++KBFUB13QrT59vB/XvONE26sbdw442KN5F+xclqTgsIIIAAAggggAACCCACBBABAogAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAABEggAgQQAQIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEAECiAABRIAA4nMGBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAUSAACJAABEggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAogAAUSAACJAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAgQQAQIIAIEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABRIAAIkAAESCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACiAABRIAAIkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBABAggAgQQAQIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCACBBABAggAmTEm5oONzObbi590/n4xIX0Ky5WA6Tz3vqW0jddbv9NVwABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEk2Opa61vfCLfZ/ptuVQOk+yH9um1AJEAAESCACBBABAggAgQQAQKIAAFEgAAiQACRAJEAAUSAACJAABEggAgQQAQIIAIEEAECiAABRALEYwsQQAQIIAIEEAECiAABRIAAIkAAESCASIBIgAAiQAARIIAIEEAECCACBBABAogAAUSAACIBIgECiAABRIAAIkAAESCACBBABAggAgQQCRAJEEAECCACBBABAogAAUSAACJAABEggAgQQCRAJEAAESCACBBABAggAgQQAQKIAAFEgAAiASIBAogAAUSAACJAABEggAgQQAQIIAIEEAECiASIBAggAgQQAQKIAAFEgAAiQAARIIAIEEAECCASIIAIEEAECCACBBABAogAAUSAACJAABEggEiASIAAIkAAESCACBBABAggAgQQAQKIAAFEgAAiAeKxBQggAgQQAQKIAAFEgIxGO7vh9nrp9tMTD+IT++mJh9UAOfoMdxyfeJKeeBqfeJaeeA4IIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAkjNQC7SXV6Fu45PvLkNdxefeJ9+xYf4xMcfIF8q3iD9l3ty8/I9AwKIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAEiQAARIIAIEEAAAQQQQAABBBBAAAEEEAECiAABRIAAAgggAgQQAQKIAAEEEEAAAQQQQAABBBBAABEggAgQQASIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECiEMAIkAAESCACBBAAAEEEEAAAQQQQAABBBABAogAAUSACBBABAggAgQQQAABBBBAAAEEEEAAAQQQQAARIIAIEEAEiAABRIAAIkAAAQQQQAABBBBAAAEEEEAECCACBBABIkAAESCACBBAAAEEEEAAAQQQQAABBBBAAAFEgAAiQAARIAIEEAECiAABBBBAAAEEEEAAAQQQQAARIIAIEEAECCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQAQKIAAFEgAgQQAQIIAIEEEAAAQQQQAABBBBAAAFEgAAiQAARIIAAAogAAUSAACJAAAEEEEAAAQQQQP4FkBcV7zUNZOjm5Rs2kiT9vW+ssPgLuqLlXAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wMi0wN1QxMjowNDozNyswMDowMHHIopwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDItMDdUMTI6MDQ6MzcrMDA6MDAAlRogAAAAAElFTkSuQmCC",
-      "module": "ocr_document",
-      "visible": true,
-      "options": false,
-      "father": "module",
-      "group": "scripts",
-      "linux": true,
-      "windows": true,
-      "mac": true,
-      "docker": false
-    },
-    {
-      "en": {
-        "title": "Process Image with OCR (Base64)",
-        "description": "Encode an image to base64 and process it with Mistral AI OCR",
-        "title_options": "Select Option",
-        "options": null
-      },
-      "es": {
-        "title": "Procesar Imagen con OCR (Base64)",
-        "description": "Codifica una imagen a base64 y procésala con el OCR de Mistral AI",
-        "title_options": "Seleccione una opción",
-        "options": null
-      },
-      "pr": {
-        "title": "Processar Imagem com OCR (Base64)",
-        "description": "Codifica uma imagem para base64 e processe-a com o OCR do Mistral AI",
-        "title_options": "Selecione uma opção",
-        "options": null
-      },
-      "form": {
-        "css": "modal-lg",
-        "inputs": [
-          {
-            "type": "input",
-            "placeholder": {
-              "es": "modeloOCR",
-              "en": "ocrModel",
-              "pr": "modeloOCR"
+              "es": "mistral-ocr-latest",
+              "en": "mistral-ocr-latest",
+              "pr": "mistral-ocr-latest"
             },
             "title": {
               "es": "Modelo:",
@@ -517,19 +406,19 @@
           {
             "type": "file_select",
             "placeholder": {
-              "es": "Seleccione una imagen",
-              "en": "Select an image",
-              "pr": "Selecione uma imagem"
+              "es": "Ruta o URL del archivo",
+              "en": "Path or URL of the file",
+              "pr": "Caminho ou URL do arquivo"
             },
             "title": {
-              "es": "Archivo de Imagen:",
-              "en": "Image File:",
-              "pr": "Arquivo de Imagem:"
+              "es": "Archivo o URL:",
+              "en": "File or URL:",
+              "pr": "Arquivo ou URL:"
             },
             "description": {
-              "es": "Seleccione el archivo de imagen a procesar",
-              "en": "Select the image file to process",
-              "pr": "Selecione o arquivo de imagem a ser processado"
+              "es": "Permite subir un archivo local o ingresar una url hacia un archivo online",
+              "en": "Allows uploading a local file or entering a url to an online file",
+              "pr": "Permite fazer o upload de um arquivo local ou entrar uma url para um arquivo online"
             },
             "id": "file_path",
             "css": "col-md-6",
@@ -552,6 +441,11 @@
               "en": "Variable name to store the OCR result",
               "pr": "Nome da variável para armazenar o resultado do OCR"
             },
+            "help": {
+              "es": "Nombre de variable sin {}",
+              "en": "Variable name without {}",
+              "pr": "Nome da variável sem {}"
+            },
             "id": "result_var",
             "css": "col-md-6",
             "remove_vars": true,
@@ -561,7 +455,7 @@
       },
       "module_name": "mistralai",
       "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI1CAMAAAAZwm7GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAD/2AD/2AD/2QD/2AD/vAD/twD/tgD/rwD/sQD/sQD/tQD/uQD/rwD/sAD/sAD/rwD/ogL/ogH/lAL/ggT/kAP/ogL/gQX/ggX7VQ76UQ76Ug7/gAf6Vg37Uw76Vg76VA76UA76UA/6TxD6UA/6UA/5UA/hBQDqIQXtKwjsKAfyOQn6UBD3Rw7sJQbsJQbcAADhBQDhBgDiBADbAAD/AAD/AAD/2AD/rwD/ggX6UA/hBQD///9Qsmk0AAAAN3RSTlMAkOK6uH3FwJ80GrqakFQquoHTbj1VopC7gdnDJpi1p6GQ4qTOurhdkbqudZJ9oJ8WZyo9BwIBn7QInQAAAAFiS0dEPKdqYc8AAAAHdElNRQfpAgcMBCU8+mMUAAAIX0lEQVR42u3UVVIDQRiF0cE1OAQJBHcLEmz/++KBFUB13QrT59vB/XvONE26sbdw442KN5F+xclqTgsIIIAAAggggAACCCACBBABAogAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAABEggAgQQAQIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEAECiAABRIAA4nMGBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAUSAACJAABEggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAogAAUSAACJAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAgQQAQIIAIEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABRIAAIkAAESCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACiAABRIAAIkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBABAggAgQQAQIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCACBBABAggAmTEm5oONzObbi590/n4xIX0Ky5WA6Tz3vqW0jddbv9NVwABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEk2Opa61vfCLfZ/ptuVQOk+yH9um1AJEAAESCACBBABAggAgQQAQKIAAFEgAAiQACRAJEAAUSAACJAABEggAgQQAQIIAIEEAECiAABRALEYwsQQAQIIAIEEAECiAABRIAAIkAAESCASIBIgAAiQAARIIAIEEAECCACBBABAogAAUSAACIBIgECiAABRIAAIkAAESCACBBABAggAgQQCRAJEEAECCACBBABAogAAUSAACJAABEggAgQQCRAJEAAESCACBBABAggAgQQAQKIAAFEgAAiASIBAogAAUSAACJAABEggAgQQAQIIAIEEAECiASIBAggAgQQAQKIAAFEgAAiQAARIIAIEEAECCASIIAIEEAECCACBBABAogAAUSAACJAABEggEiASIAAIkAAESCACBBABAggAgQQAQKIAAFEgAAiAeKxBQggAgQQAQKIAAFEgIxGO7vh9nrp9tMTD+IT++mJh9UAOfoMdxyfeJKeeBqfeJaeeA4IIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAkjNQC7SXV6Fu45PvLkNdxefeJ9+xYf4xMcfIF8q3iD9l3ty8/I9AwKIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAEiQAARIIAIEEAAAQQQQAABBBBAAAEEEAECiAABRIAAAgggAgQQAQKIAAEEEEAAAQQQQAABBBBAABEggAgQQASIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECiEMAIkAAESCACBBAAAEEEEAAAQQQQAABBBABAogAAUSACBBABAggAgQQQAABBBBAAAEEEEAAAQQQQAARIIAIEEAEiAABRIAAIkAAAQQQQAABBBBAAAEEEEAECCACBBABIkAAESCACBBAAAEEEEAAAQQQQAABBBBAAAFEgAAiQAARIAIEEAECiAABBBBAAAEEEEAAAQQQQAARIIAIEEAECCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQAQKIAAFEgAgQQAQIIAIEEEAAAQQQQAABBBBAAAFEgAAiQAARIIAAAogAAUSAACJAAAEEEEAAAQQQQP4FkBcV7zUNZOjm5Rs2kiT9vW+ssPgLuqLlXAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wMi0wN1QxMjowNDozNyswMDowMHHIopwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDItMDdUMTI6MDQ6MzcrMDA6MDAAlRogAAAAAElFTkSuQmCC",
-      "module": "ocr_base64",
+      "module": "ocr_document",
       "visible": true,
       "options": false,
       "father": "module",

@@ -1,7 +1,8 @@
 from mistralai import Mistral  # type: ignore
-from mistral_client import set_client  # Importar la función para establecer el cliente
+from mistral_client import set_client  # Import function to set client
+from mistralai.models import SDKError  # type: ignore
 
-# Variable global para almacenar la conexión
+# Global variable to store connection
 global mod_model_Mistral
 
 try:
@@ -30,20 +31,26 @@ def connect_to_mistral(api_key, result_var, SetVar, PrintException):
         # Initialize the Mistral client and store it globally
         client = Mistral(api_key=api_key)
 
-        # Test the connection by listing models
-        models_list = client.models.list()
+        try:
+            # Test the connection by listing models
+            models_list = client.models.list()
 
-        # Validate that the response contains models
-        if hasattr(models_list, 'data') and models_list.data:
-            print("Se encontraron los modelos.")
-        else:
-            raise Exception("No se encontraron modelos en la respuesta. Verifica la conexión o el API key.")
+            # Validate that the response contains models
+            if hasattr(models_list, 'data') and models_list.data:
+                print("Models found successfully.")
+            else:
+                raise Exception("No models found in response. Please verify your connection or API key.")
 
-        # Store the client globally
-        set_client(client)
+            # Store the client globally
+            set_client(client)
 
-        # If successful, set the result variable to True
-        SetVar(result_var, True)
+            # If successful, set the result variable to True
+            SetVar(result_var, True)
+
+        except SDKError as sdk_error:
+            if "Status 401" in str(sdk_error):
+                raise Exception("Invalid or expired API key. Please check your credentials and try again.")
+            raise Exception(f"Error connecting to Mistral AI: {str(sdk_error)}")
 
     except Exception as e:
         # On failure, set the result variable to False and raise the exception
