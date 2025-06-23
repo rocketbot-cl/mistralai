@@ -1,0 +1,469 @@
+{
+  "name": "mistralai",
+  "version": "1.0.0",
+  "author": "Pedro Dresch",
+  "license": "MIT",
+  "description": "Module to interact with Mistral AI models from Rocketbot.",
+  "description_lang": {
+    "es": "Módulo para interactuar con los modelos de Mistral AI desde Rocketbot.",
+    "en": "Module to interact with Mistral AI models from Rocketbot.",
+    "pr": "Módulo para interagir com os modelos do Mistral AI a partir do Rocketbot."
+  },
+  "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
+  "homepage": "https://rocketbot.com",
+  "linux": true,
+  "windows": true,
+  "mac": true,
+  "docker": false,
+  "dependencies": {
+    "mistralai": "1.8.2"
+  },
+  "title": {
+    "es": "Mistral AI",
+    "en": "Mistral AI",
+    "pr": "Mistral AI"
+  },
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI1CAMAAAAZwm7GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAD/2AD/2AD/2QD/2AD/vAD/twD/tgD/rwD/sQD/sQD/tQD/uQD/rwD/sAD/sAD/rwD/ogL/ogH/lAL/ggT/kAP/ogL/gQX/ggX7VQ76UQ76Ug7/gAf6Vg37Uw76Vg76VA76UA76UA/6TxD6UA/6UA/5UA/hBQDqIQXtKwjsKAfyOQn6UBD3Rw7sJQbsJQbcAADhBQDhBgDiBADbAAD/AAD/AAD/2AD/rwD/ggX6UA/hBQD///9Qsmk0AAAAN3RSTlMAkOK6uH3FwJ80GrqakFQquoHTbj1VopC7gdnDJpi1p6GQ4qTOurhdkbqudZJ9oJ8WZyo9BwIBn7QInQAAAAFiS0dEPKdqYc8AAAAHdElNRQfpAgcMBCU8+mMUAAAIX0lEQVR42u3UVVIDQRiF0cE1OAQJBHcLEmz/++KBFUB13QrT59vB/XvONE26sbdw442KN5F+xclqTgsIIIAAAggggAACCCACBBABAogAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAABEggAgQQAQIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEAECiAABRIAA4nMGBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAUSAACJAABEggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAogAAUSAACJAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAgQQAQIIAIEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABRIAAIkAAESCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACiAABRIAAIkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBABAggAgQQAQIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCACBBABAggAmTEm5oONzObbi590/n4xIX0Ky5WA6Tz3vqW0jddbv9NVwABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEk2Opa61vfCLfZ/ptuVQOk+yH9um1AJEAAESCACBBABAggAgQQAQKIAAFEgAAiQACRAJEAAUSAACJAABEggAgQQAQIIAIEEAECiAABRALEYwsQQAQIIAIEEAECiAABRIAAIkAAESCASIBIgAAiQAARIIAIEEAECCACBBABAogAAUSAACIBIgECiAABRIAAIkAAESCACBBABAggAgQQCRAJEEAECCACBBABAogAAUSAACJAABEggAgQQCRAJEAAESCACBBABAggAgQQAQKIAAFEgAAiASIBAogAAUSAACJAABEggAgQQAQIIAIEEAECiASIBAggAgQQAQKIAAFEgAAiQAARIIAIEEAECCASIIAIEEAECCACBBABAogAAUSAACJAABEggEiASIAAIkAAESCACBBABAggAgQQAQKIAAFEgAAiAeKxBQggAgQQAQKIAAFEgIxGO7vh9nrp9tMTD+IT++mJh9UAOfoMdxyfeJKeeBqfeJaeeA4IIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAkjNQC7SXV6Fu45PvLkNdxefeJ9+xYf4xMcfIF8q3iD9l3ty8/I9AwKIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAEiQAARIIAIEEAAAQQQQAABBBBAAAEEEAECiAABRIAAAgggAgQQAQKIAAEEEEAAAQQQQAABBBBAABEggAgQQASIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECiEMAIkAAESCACBBAAAEEEEAAAQQQQAABBBABAogAAUSACBBABAggAgQQQAABBBBAAAEEEEAAAQQQQAARIIAIEEAEiAABRIAAIkAAAQQQQAABBBBAAAEEEEAECCACBBABIkAAESCACBBAAAEEEEAAAQQQQAABBBBAAAFEgAAiQAARIAIEEAECiAABBBBAAAEEEEAAAQQQQAARIIAIEEAECCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQAQKIAAFEgAgQQAQIIAIEEEAAAQQQQAABBBBAAAFEgAAiQAARIIAAAogAAUSAACJAAAEEEEAAAQQQQP4FkBcV7zUNZOjm5Rs2kiT9vW+ssPgLuqLlXAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wMi0wN1QxMjowNDozNyswMDowMHHIopwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDItMDdUMTI6MDQ6MzcrMDA6MDAAlRogAAAAAElFTkSuQmCC",
+  "children": [
+    {
+      "en": {
+        "title": "Connect to Mistral",
+        "description": "Establish connection to Mistral AI",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "es": {
+        "title": "Conectar con MistralAi",
+        "description": "Establece conexión con Mistral AI",
+        "title_options": "Seleccione una opción",
+        "options": null
+      },
+      "pr": {
+        "title": "Conectar com Mistral",
+        "description": "Estabelece conexão com Mistral AI",
+        "title_options": "Selecione uma opção",
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "sk-abc123...",
+              "en": "sk-abc123...",
+              "pr": "sk-abc123..."
+            },
+            "title": {
+              "es": "API Key:",
+              "en": "API Key:",
+              "pr": "API Key:"
+            },
+            "description": {
+              "es": "Clave API de tu cuenta de Mistral",
+              "en": "Your Mistral API key",
+              "pr": "Sua chave de API do Mistral"
+            },
+            "id": "api_key",
+            "css": "col-md-6",
+            "required": true
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "resultadoMistral",
+              "en": "mistralResult",
+              "pr": "resultadoMistral"
+            },
+            "title": {
+              "es": "Asignar a variable:",
+              "en": "Assign to variable:",
+              "pr": "Atribuir à variável:"
+            },
+            "description": {
+              "es": "Nombre de la variable donde se guardará la conexión",
+              "en": "Variable name to store the connection",
+              "pr": "Nome da variável para armazenar a conexão"
+            },
+            "help": {
+              "es": "Nombre de variable sin {}",
+              "en": "Variable name without {}",
+              "pr": "Nome da variável sem {}"
+            },
+            "id": "result_var",
+            "css": "col-md-6",
+            "remove_vars": true,
+            "required": true
+          }
+        ]
+      },
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI1CAMAAAAZwm7GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAD/2AD/2AD/2QD/2AD/vAD/twD/tgD/rwD/sQD/sQD/tQD/uQD/rwD/sAD/sAD/rwD/ogL/ogH/lAL/ggT/kAP/ogL/gQX/ggX7VQ76UQ76Ug7/gAf6Vg37Uw76Vg76VA76UA76UA/6TxD6UA/6UA/5UA/hBQDqIQXtKwjsKAfyOQn6UBD3Rw7sJQbsJQbcAADhBQDhBgDiBADbAAD/AAD/AAD/2AD/rwD/ggX6UA/hBQD///9Qsmk0AAAAN3RSTlMAkOK6uH3FwJ80GrqakFQquoHTbj1VopC7gdnDJpi1p6GQ4qTOurhdkbqudZJ9oJ8WZyo9BwIBn7QInQAAAAFiS0dEPKdqYc8AAAAHdElNRQfpAgcMBCU8+mMUAAAIX0lEQVR42u3UVVIDQRiF0cE1OAQJBHcLEmz/++KBFUB13QrT59vB/XvONE26sbdw442KN5F+xclqTgsIIIAAAggggAACCCACBBABAogAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAABEggAgQQAQIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEAECiAABRIAA4nMGBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAUSAACJAABEggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAogAAUSAACJAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAgQQAQIIAIEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABRIAAIkAAESCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACiAABRIAAIkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBABAggAgQQAQIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCACBBABAggAmTEm5oONzObbi590/n4xIX0Ky5WA6Tz3vqW0jddbv9NVwABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEk2Opa61vfCLfZ/ptuVQOk+yH9um1AJEAAESCACBBABAggAgQQAQKIAAFEgAAiQACRAJEAAUSAACJAABEggAgQQAQIIAIEEAECiAABRALEYwsQQAQIIAIEEAECiAABRIAAIkAAESCASIBIgAAiQAARIIAIEEAECCACBBABAogAAUSAACIBIgECiAABRIAAIkAAESCACBBABAggAgQQCRAJEEAECCACBBABAogAAUSAACJAABEggAgQQCRAJEAAESCACBBABAggAgQQAQKIAAFEgAAiASIBAogAAUSAACJAABEggAgQQAQIIAIEEAECiASIBAggAgQQAQKIAAFEgAAiQAARIIAIEEAECCASIIAIEEAECCACBBABAogAAUSAACJAABEggEiASIAAIkAAESCACBBABAggAgQQAQKIAAFEgAAiAeKxBQggAgQQAQKIAAFEgIxGO7vh9nrp9tMTD+IT++mJh9UAOfoMdxyfeJKeeBqfeJaeeA4IIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAkjNQC7SXV6Fu45PvLkNdxefeJ9+xYf4xMcfIF8q3iD9l3ty8/I9AwKIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAEiQAARIIAIEEAAAQQQQAABBBBAAAEEEAECiAABRIAAAgggAgQQAQKIAAEEEEAAAQQQQAABBBBAABEggAgQQASIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECiEMAIkAAESCACBBAAAEEEEAAAQQQQAABBBABAogAAUSACBBABAggAgQQQAABBBBAAAEEEEAAAQQQQAARIIAIEEAEiAABRIAAIkAAAQQQQAABBBBAAAEEEEAECCACBBABIkAAESCACBBAAAEEEEAAAQQQQAABBBBAAAFEgAAiQAARIAIEEAECiAABBBBAAAEEEEAAAQQQQAARIIAIEEAECCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQAQKIAAFEgAgQQAQIIAIEEEAAAQQQQAABBBBAAAFEgAAiQAARIIAAAogAAUSAACJAAAEEEEAAAQQQQP4FkBcV7zUNZOjm5Rs2kiT9vW+ssPgLuqLlXAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wMi0wN1QxMjowNDozNyswMDowMHHIopwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDItMDdUMTI6MDQ6MzcrMDA6MDAAlRogAAAAAElFTkSuQmCC",
+      "module": "connect",
+      "module_name": "mistralai",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "Get Models",
+        "description": "Retrieve available models from Mistral AI",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "es": {
+        "title": "Obtener Modelos",
+        "description": "Recupera los modelos disponibles de Mistral AI",
+        "title_options": "Seleccione una opción",
+        "options": null
+      },
+      "pr": {
+        "title": "Obter Modelos",
+        "description": "Recupera os modelos disponíveis do Mistral AI",
+        "title_options": "Selecione uma opção",
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "resultadoModelos",
+              "en": "modelsResult",
+              "pr": "resultadoModelos"
+            },
+            "title": {
+              "es": "Asignar a variable:",
+              "en": "Assign to variable:",
+              "pr": "Atribuir à variável:"
+            },
+            "description": {
+              "es": "Nombre de la variable donde se guardará la lista de modelos",
+              "en": "Variable name to store the list of models",
+              "pr": "Nome da variável para armazenar a lista de modelos"
+            },
+            "help": {
+              "es": "Nombre de variable sin {}",
+              "en": "Variable name without {}",
+              "pr": "Nome da variável sem {}"
+            },
+            "id": "result_var",
+            "css": "col-md-6",
+            "remove_vars": true,
+            "required": true
+          }
+        ]
+      },
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI1CAMAAAAZwm7GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAD/2AD/2AD/2QD/2AD/vAD/twD/tgD/rwD/sQD/sQD/tQD/uQD/rwD/sAD/sAD/rwD/ogL/ogH/lAL/ggT/kAP/ogL/gQX/ggX7VQ76UQ76Ug7/gAf6Vg37Uw76Vg76VA76UA76UA/6TxD6UA/6UA/5UA/hBQDqIQXtKwjsKAfyOQn6UBD3Rw7sJQbsJQbcAADhBQDhBgDiBADbAAD/AAD/AAD/2AD/rwD/ggX6UA/hBQD///9Qsmk0AAAAN3RSTlMAkOK6uH3FwJ80GrqakFQquoHTbj1VopC7gdnDJpi1p6GQ4qTOurhdkbqudZJ9oJ8WZyo9BwIBn7QInQAAAAFiS0dEPKdqYc8AAAAHdElNRQfpAgcMBCU8+mMUAAAIX0lEQVR42u3UVVIDQRiF0cE1OAQJBHcLEmz/++KBFUB13QrT59vB/XvONE26sbdw442KN5F+xclqTgsIIIAAAggggAACCCACBBABAogAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAABEggAgQQAQIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEAECiAABRIAA4nMGBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAUSAACJAABEggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAogAAUSAACJAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAgQQAQIIAIEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABRIAAIkAAESCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACiAABRIAAIkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBABAggAgQQAQIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCACBBABAggAmTEm5oONzObbi590/n4xIX0Ky5WA6Tz3vqW0jddbv9NVwABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEk2Opa61vfCLfZ/ptuVQOk+yH9um1AJEAAESCACBBABAggAgQQAQKIAAFEgAAiQACRAJEAAUSAACJAABEggAgQQAQIIAIEEAECiAABRALEYwsQQAQIIAIEEAECiAABRIAAIkAAESCASIBIgAAiQAARIIAIEEAECCACBBABAogAAUSAACIBIgECiAABRIAAIkAAESCACBBABAggAgQQCRAJEEAECCACBBABAogAAUSAACJAABEggAgQQCRAJEAAESCACBBABAggAgQQAQKIAAFEgAAiASIBAogAAUSAACJAABEggAgQQAQIIAIEEAECiASIBAggAgQQAQKIAAFEgAAiQAARIIAIEEAECCASIIAIEEAECCACBBABAogAAUSAACJAABEggEiASIAAIkAAESCACBBABAggAgQQAQKIAAFEgAAiAeKxBQggAgQQAQKIAAFEgIxGO7vh9nrp9tMTD+IT++mJh9UAOfoMdxyfeJKeeBqfeJaeeA4IIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAkjNQC7SXV6Fu45PvLkNdxefeJ9+xYf4xMcfIF8q3iD9l3ty8/I9AwKIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAEiQAARIIAIEEAAAQQQQAABBBBAAAEEEAECiAABRIAAAgggAgQQAQKIAAEEEEAAAQQQQAABBBBAABEggAgQQASIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECiEMAIkAAESCACBBAAAEEEEAAAQQQQAABBBABAogAAUSACBBABAggAgQQQAABBBBAAAEEEEAAAQQQQAARIIAIEEAEiAABRIAAIkAAAQQQQAABBBBAAAEEEEAECCACBBABIkAAESCACBBAAAEEEEAAAQQQQAABBBBAAAFEgAAiQAARIAIEEAECiAABBBBAAAEEEEAAAQQQQAARIIAIEEAECCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQAQKIAAFEgAgQQAQIIAIEEEAAAQQQQAABBBBAAAFEgAAiQAARIIAAAogAAUSAACJAAAEEEEAAAQQQQP4FkBcV7zUNZOjm5Rs2kiT9vW+ssPgLuqLlXAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wMi0wN1QxMjowNDozNyswMDowMHHIopwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDItMDdUMTI6MDQ6MzcrMDA6MDAAlRogAAAAAElFTkSuQmCC",
+      "module_name": "mistralai",
+      "module": "get_models",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "Generate Text",
+        "description": "Generate text using Mistral AI",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "es": {
+        "title": "Generar Texto",
+        "description": "Genera texto utilizando Mistral AI",
+        "title_options": "Seleccione una opción",
+        "options": null
+      },
+      "pr": {
+        "title": "Gerar Texto",
+        "description": "Gera texto usando o Mistral AI",
+        "title_options": "Selecione uma opção",
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "textarea",
+            "placeholder": {
+              "es": "Qué es Rocketbot?",
+              "en": "What is Rocketbot?",
+              "pr": "O que é Rocketbot?"
+            },
+            "title": {
+              "es": "Prompt:",
+              "en": "Prompt:",
+              "pr": "Prompt:"
+            },
+            "description": {
+              "es": "Texto de entrada para generar texto",
+              "en": "Input text to generate text",
+              "pr": "Texto de entrada para gerar texto"
+            },
+            "id": "prompt",
+            "css": "col-md-12",
+            "required": true
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "mistral-tiny",
+              "en": "mistral-tiny",
+              "pr": "mistral-tiny"
+            },
+            "title": {
+              "es": "Modelo:",
+              "en": "Model:",
+              "pr": "Modelo:"
+            },
+            "description": {
+              "es": "ID del modelo a utilizar",
+              "en": "ID of the model to use",
+              "pr": "ID do modelo a ser usado"
+            },
+            "help": {
+              "es": "Por ejemplo: mistral-tiny, mistral-large",
+              "en": "For example: mistral-tiny, mistral-large",
+              "pr": "Por exemplo: mistral-tiny, mistral-large"
+            },
+            "id": "model",
+            "css": "col-md-6",
+            "required": true
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "resultadoTexto",
+              "en": "textResult",
+              "pr": "resultadoTexto"
+            },
+            "title": {
+              "es": "Asignar a variable:",
+              "en": "Assign to variable:",
+              "pr": "Atribuir à variável:"
+            },
+            "description": {
+              "es": "Nombre de la variable donde se guardará el texto generado",
+              "en": "Variable name to store the generated text",
+              "pr": "Nome da variável para armazenar o texto gerado"
+            },
+            "help": {
+              "es": "Nombre de variable sin {}",
+              "en": "Variable name without {}",
+              "pr": "Nome da variável sem {}"
+            },
+            "id": "result_var",
+            "css": "col-md-6",
+            "remove_vars": true,
+            "required": true
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "0.7",
+              "en": "0.7",
+              "pr": "0.7"
+            },
+            "title": {
+              "es": "Temperatura (opcional):",
+              "en": "Temperature (optional):",
+              "pr": "Temperatura (opcional):"
+            },
+            "description": {
+              "es": "Controla la aleatoriedad de la generación de texto (0.0 a 0.7)",
+              "en": "Controls the randomness of text generation (0.0 a 0.7)",
+              "pr": "Controla a aleatoriedade da geração de texto (0.0 a 0.7)"
+            },
+            "help": {
+              "es": "Valores más altos generan texto más diverso.",
+              "en": "Higher values generate more diverse text.",
+              "pr": "Valores mais altos geram texto mais diverso."
+            },
+            "id": "temperature",
+            "css": "col-md-6",
+            "required": false
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "100",
+              "en": "100",
+              "pr": "100"
+            },
+            "title": {
+              "es": "Máximo de tokens (opcional):",
+              "en": "Maximum tokens (optional):",
+              "pr": "Máximo de tokens (opcional):"
+            },
+            "description": {
+              "es": "Número máximo de tokens a generar",
+              "en": "Maximum number of tokens to generate",
+              "pr": "Número máximo de tokens a serem gerados"
+            },
+            "help": {
+              "es": "Limita la longitud de la respuesta generada.",
+              "en": "Limits the length of the generated response.",
+              "pr": "Limita o comprimento da resposta gerada."
+            },
+            "id": "max_tokens",
+            "css": "col-md-6",
+            "required": false
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "herramienta RPA",
+              "en": "RPA tool",
+              "pr": "ferramenta RPA"
+            },
+            "title": {
+              "es": "Secuencia de parada (opcional):",
+              "en": "Stop sequence (optional):",
+              "pr": "Sequência de parada (opcional):"
+            },
+            "description": {
+              "es": "Secuencia opcional para detener la generación de texto",
+              "en": "Optional sequence to stop text generation",
+              "pr": "Sequência opcional para parar a geração de texto"
+            },
+            "help": {
+              "es": "Detener la generación si se detecta este texto.",
+              "en": "Stop generation if this text is detected.",
+              "pr": "Parar a geração se este texto for detectado."
+            },
+            "id": "stop_sequence",
+            "css": "col-md-6",
+            "required": false
+          }
+        ]
+      },
+      "module_name": "mistralai",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI1CAMAAAAZwm7GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAD/2AD/2AD/2QD/2AD/vAD/twD/tgD/rwD/sQD/sQD/tQD/uQD/rwD/sAD/sAD/rwD/ogL/ogH/lAL/ggT/kAP/ogL/gQX/ggX7VQ76UQ76Ug7/gAf6Vg37Uw76Vg76VA76UA76UA/6TxD6UA/6UA/5UA/hBQDqIQXtKwjsKAfyOQn6UBD3Rw7sJQbsJQbcAADhBQDhBgDiBADbAAD/AAD/AAD/2AD/rwD/ggX6UA/hBQD///9Qsmk0AAAAN3RSTlMAkOK6uH3FwJ80GrqakFQquoHTbj1VopC7gdnDJpi1p6GQ4qTOurhdkbqudZJ9oJ8WZyo9BwIBn7QInQAAAAFiS0dEPKdqYc8AAAAHdElNRQfpAgcMBCU8+mMUAAAIX0lEQVR42u3UVVIDQRiF0cE1OAQJBHcLEmz/++KBFUB13QrT59vB/XvONE26sbdw442KN5F+xclqTgsIIIAAAggggAACCCACBBABAogAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAABEggAgQQAQIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEAECiAABRIAA4nMGBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAUSAACJAABEggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAogAAUSAACJAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAgQQAQIIAIEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABRIAAIkAAESCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACiAABRIAAIkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBABAggAgQQAQIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCACBBABAggAmTEm5oONzObbi590/n4xIX0Ky5WA6Tz3vqW0jddbv9NVwABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEk2Opa61vfCLfZ/ptuVQOk+yH9um1AJEAAESCACBBABAggAgQQAQKIAAFEgAAiQACRAJEAAUSAACJAABEggAgQQAQIIAIEEAECiAABRALEYwsQQAQIIAIEEAECiAABRIAAIkAAESCASIBIgAAiQAARIIAIEEAECCACBBABAogAAUSAACIBIgECiAABRIAAIkAAESCACBBABAggAgQQCRAJEEAECCACBBABAogAAUSAACJAABEggAgQQCRAJEAAESCACBBABAggAgQQAQKIAAFEgAAiASIBAogAAUSAACJAABEggAgQQAQIIAIEEAECiASIBAggAgQQAQKIAAFEgAAiQAARIIAIEEAECCASIIAIEEAECCACBBABAogAAUSAACJAABEggEiASIAAIkAAESCACBBABAggAgQQAQKIAAFEgAAiAeKxBQggAgQQAQKIAAFEgIxGO7vh9nrp9tMTD+IT++mJh9UAOfoMdxyfeJKeeBqfeJaeeA4IIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAkjNQC7SXV6Fu45PvLkNdxefeJ9+xYf4xMcfIF8q3iD9l3ty8/I9AwKIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAEiQAARIIAIEEAAAQQQQAABBBBAAAEEEAECiAABRIAAAgggAgQQAQKIAAEEEEAAAQQQQAABBBBAABEggAgQQASIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECiEMAIkAAESCACBBAAAEEEEAAAQQQQAABBBABAogAAUSACBBABAggAgQQQAABBBBAAAEEEEAAAQQQQAARIIAIEEAEiAABRIAAIkAAAQQQQAABBBBAAAEEEEAECCACBBABIkAAESCACBBAAAEEEEAAAQQQQAABBBBAAAFEgAAiQAARIAIEEAECiAABBBBAAAEEEEAAAQQQQAARIIAIEEAECCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQAQKIAAFEgAgQQAQIIAIEEEAAAQQQQAABBBBAAAFEgAAiQAARIIAAAogAAUSAACJAAAEEEEAAAQQQQP4FkBcV7zUNZOjm5Rs2kiT9vW+ssPgLuqLlXAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wMi0wN1QxMjowNDozNyswMDowMHHIopwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDItMDdUMTI6MDQ6MzcrMDA6MDAAlRogAAAAAElFTkSuQmCC",
+      "module": "generate_text",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": false
+    },
+    {
+      "en": {
+        "title": "OCR to Image/PDF",
+        "description": "Process an image or PDF with Mistral AI OCR",
+        "title_options": "Select Option",
+        "options": null
+      },
+      "es": {
+        "title": "OCR a Imagen/PDF",
+        "description": "Procesa una imagen o PDF con el OCR de Mistral AI",
+        "title_options": "Seleccione una opción",
+        "options": null
+      },
+      "pr": {
+        "title": "OCR para Imagem/PDF",
+        "description": "Processa uma imagem ou PDF com o OCR do Mistral AI",
+        "title_options": "Selecione uma opção",
+        "options": null
+      },
+      "form": {
+        "css": "modal-lg",
+        "inputs": [
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "mistral-ocr-latest",
+              "en": "mistral-ocr-latest",
+              "pr": "mistral-ocr-latest"
+            },
+            "title": {
+              "es": "Modelo:",
+              "en": "Model:",
+              "pr": "Modelo:"
+            },
+            "description": {
+              "es": "Nombre del modelo OCR a utilizar",
+              "en": "Name of the OCR model to use",
+              "pr": "Nome do modelo OCR a ser usado"
+            },
+            "id": "model",
+            "css": "col-md-6",
+            "required": true
+          },
+          {
+            "type": "file_select",
+            "placeholder": {
+              "es": "Ruta o URL del archivo",
+              "en": "Path or URL of the file",
+              "pr": "Caminho ou URL do arquivo"
+            },
+            "title": {
+              "es": "Archivo o URL:",
+              "en": "File or URL:",
+              "pr": "Arquivo ou URL:"
+            },
+            "description": {
+              "es": "Permite subir un archivo local o ingresar una url hacia un archivo online",
+              "en": "Allows uploading a local file or entering a url to an online file",
+              "pr": "Permite fazer o upload de um arquivo local ou entrar uma url para um arquivo online"
+            },
+            "id": "file_path",
+            "css": "col-md-6",
+            "required": true
+          },
+          {
+            "type": "input",
+            "placeholder": {
+              "es": "resultadoOCR",
+              "en": "ocrResult",
+              "pr": "resultadoOCR"
+            },
+            "title": {
+              "es": "Asignar a variable:",
+              "en": "Assign to variable:",
+              "pr": "Atribuir à variável:"
+            },
+            "description": {
+              "es": "Nombre de la variable donde se guardará el resultado del OCR",
+              "en": "Variable name to store the OCR result",
+              "pr": "Nome da variável para armazenar o resultado do OCR"
+            },
+            "help": {
+              "es": "Nombre de variable sin {}",
+              "en": "Variable name without {}",
+              "pr": "Nome da variável sem {}"
+            },
+            "id": "result_var",
+            "css": "col-md-6",
+            "remove_vars": true,
+            "required": true
+          }
+        ]
+      },
+      "module_name": "mistralai",
+      "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAI1CAMAAAAZwm7GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAt1BMVEUAAAD/2AD/2AD/2QD/2AD/vAD/twD/tgD/rwD/sQD/sQD/tQD/uQD/rwD/sAD/sAD/rwD/ogL/ogH/lAL/ggT/kAP/ogL/gQX/ggX7VQ76UQ76Ug7/gAf6Vg37Uw76Vg76VA76UA76UA/6TxD6UA/6UA/5UA/hBQDqIQXtKwjsKAfyOQn6UBD3Rw7sJQbsJQbcAADhBQDhBgDiBADbAAD/AAD/AAD/2AD/rwD/ggX6UA/hBQD///9Qsmk0AAAAN3RSTlMAkOK6uH3FwJ80GrqakFQquoHTbj1VopC7gdnDJpi1p6GQ4qTOurhdkbqudZJ9oJ8WZyo9BwIBn7QInQAAAAFiS0dEPKdqYc8AAAAHdElNRQfpAgcMBCU8+mMUAAAIX0lEQVR42u3UVVIDQRiF0cE1OAQJBHcLEmz/++KBFUB13QrT59vB/XvONE26sbdw442KN5F+xclqTgsIIIAAAggggAACCCACBBABAogAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAABEggAgQQAQIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEAECiAABRIAA4nMGBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAUSAACJAABEggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAogAAUSAACJAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAgQQAQIIAIEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABRIAAIkAAESCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACiAABRIAAIkAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBABAggAgQQAQIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCACBBABAggAmTEm5oONzObbi590/n4xIX0Ky5WA6Tz3vqW0jddbv9NVwABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEk2Opa61vfCLfZ/ptuVQOk+yH9um1AJEAAESCACBBABAggAgQQAQKIAAFEgAAiQACRAJEAAUSAACJAABEggAgQQAQIIAIEEAECiAABRALEYwsQQAQIIAIEEAECiAABRIAAIkAAESCASIBIgAAiQAARIIAIEEAECCACBBABAogAAUSAACIBIgECiAABRIAAIkAAESCACBBABAggAgQQCRAJEEAECCACBBABAogAAUSAACJAABEggAgQQCRAJEAAESCACBBABAggAgQQAQKIAAFEgAAiASIBAogAAUSAACJAABEggAgQQAQIIAIEEAECiASIBAggAgQQAQKIAAFEgAAiQAARIIAIEEAECCASIIAIEEAECCACBBABAogAAUSAACJAABEggEiASIAAIkAAESCACBBABAggAgQQAQKIAAFEgAAiAeKxBQggAgQQAQKIAAFEgIxGO7vh9nrp9tMTD+IT++mJh9UAOfoMdxyfeJKeeBqfeJaeeA4IIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAggggAACCCCAAAIIIIAAAkjNQC7SXV6Fu45PvLkNdxefeJ9+xYf4xMcfIF8q3iD9l3ty8/I9AwKIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAEiQAARIIAIEEAAAQQQQAABBBBAAAEEEAECiAABRIAAAgggAgQQAQKIAAEEEEAAAQQQQAABBBBAABEggAgQQASIAAFEgAAiQAABBBBAAAEEEEAAAQQQQAQIIAIEEAECiEMAIkAAESCACBBAAAEEEEAAAQQQQAABBBABAogAAUSACBBABAggAgQQQAABBBBAAAEEEEAAAQQQQAARIIAIEEAEiAABRIAAIkAAAQQQQAABBBBAAAEEEEAECCACBBABIkAAESCACBBAAAEEEEAAAQQQQAABBBBAAAFEgAAiQAARIAIEEAECiAABBBBAAAEEEEAAAQQQQAARIIAIEEAECCCAACJAABEggAgQQAABBBBAAAEEEEAAAQQQAQKIAAFEgAgQQAQIIAIEEEAAAQQQQAABBBBAAAFEgAAiQAARIIAAAogAAUSAACJAAAEEEEAAAQQQQP4FkBcV7zUNZOjm5Rs2kiT9vW+ssPgLuqLlXAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyNS0wMi0wN1QxMjowNDozNyswMDowMHHIopwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjUtMDItMDdUMTI6MDQ6MzcrMDA6MDAAlRogAAAAAElFTkSuQmCC",
+      "module": "ocr_document",
+      "visible": true,
+      "options": false,
+      "father": "module",
+      "group": "scripts",
+      "linux": true,
+      "windows": true,
+      "mac": true,
+      "docker": false
+    }
+  ]
+}
