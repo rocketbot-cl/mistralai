@@ -8,6 +8,7 @@ Módulo para interagir com os modelos do Mistral AI a partir do Rocketbot.
 
 *Read this in other languages: [English](Manual_mistralai.md), [Português](Manual_mistralai.pr.md), [Español](Manual_mistralai.es.md)*
 
+![banner](imgs/Banner_MistralAi.jpg)
 ## Como instalar este módulo
   
 Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
